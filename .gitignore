@@ -1,0 +1,56 @@
+# Build folders
+build/
+bin/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio Code settings
+.vscode/
+*.code-workspace
+
+# Compiled binaries and objects
+*.exe
+*.dll
+*.lib
+*.obj
+*.o
+*.pdb
+*.ilk
+
+# Logs and temporary files
+*.log
+*.tmp
+*.tlog
+*.sdf
+*.cache
+
+# Precompiled headers
+*.pch
+*.gch
+
+# CMake user-specific files
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+
+# DirectX Shader Compiler output
+*.cso
+*.hlsl.h
+*.fxc
+
+# Backup/OS files
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Generated project files
+*.vcxproj*
+*.sln
+*.ncb
+*.suo
+*.user
+*.opendb
+*.VC.db
