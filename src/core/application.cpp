@@ -76,8 +76,8 @@ void Application::init()
         5000.0f
     );
 
-    camera1->setPosition({ 0.0f, 80.0f, -200.0f }); 
-    camera1->lookAt({ 0.0f, 0.0f, 0.0f }); 
+    // camera1->setPosition({ 0.0f, 80.0f, -200.0f }); 
+    // camera1->lookAt({ 0.0f, 0.0f, 0.0f }); 
     // camera1->setFarPlane(5000.0f);
 
     // --- Lighting ---
@@ -94,6 +94,9 @@ void Application::init()
         directCommandQueue.get()
     );
 
+    // waveSystem = std::make_unique<WaveSystem>(...);
+    // rippleSystem = std::make_unique<RippleSystem>(...);
+    // waterPass = std::make_unique<WaterPass>(...);
 }
 
 int Application::run()
@@ -311,7 +314,7 @@ void Application::onKeyPressed(KeyEventArgs& e)
         case KeyCode::Key::F2: clock->setTimeOfDay(0.5f);  break; // noon
         case KeyCode::Key::F3: clock->setTimeOfDay(0.75f); break; // sunset
         case KeyCode::Key::F4: clock->setTimeOfDay(0.0f);  break; // midnight
-        case KeyCode::Key::F5: clock->setPaused(!clock->getState().isNight); break;
+        // case KeyCode::Key::F5: clock->setPaused(!clock->getState().isNight); break;
         case KeyCode::Key::F6:  weather->setWeather(WeatherType::Clear);    break;
         case KeyCode::Key::F7:  weather->setWeather(WeatherType::Rain);     break;
         case KeyCode::Key::F8:  weather->setWeather(WeatherType::Storm);    break;

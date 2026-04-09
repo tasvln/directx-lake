@@ -67,10 +67,5 @@ add_custom_command(
 add_custom_command(
     TARGET DIRECTX3D POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/assets/models $<TARGET_FILE_DIR:DIRECTX3D>/assets/models
-)
-add_custom_command(
-    TARGET DIRECTX3D POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CMAKE_SOURCE_DIR}/assets/textures $<TARGET_FILE_DIR:DIRECTX3D>/assets/textures
 )
