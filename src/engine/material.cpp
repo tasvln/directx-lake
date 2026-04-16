@@ -4,8 +4,6 @@
 #include "engine/resources/texture.h"
 
 void Material::bind(ID3D12GraphicsCommandList* cmdList, UINT rootIndex) {
-    LOG_INFO(L"[Material] bind() called");
-
     if (!texture) {
         LOG_INFO(L"[Material] texture is nullptr!");
         return;
@@ -18,11 +16,7 @@ void Material::bind(ID3D12GraphicsCommandList* cmdList, UINT rootIndex) {
         return;
     }
 
-    LOG_INFO(L"[Material] GPU handle = 0x%llX", gpuHandle.ptr);
-
     cmdList->SetGraphicsRootDescriptorTable(rootIndex, gpuHandle);
-    LOG_INFO(L"[Material] Texture bound successfully: rootIndex=%u, GPU handle=0x%llX",
-             rootIndex, gpuHandle.ptr);
 }
 
 

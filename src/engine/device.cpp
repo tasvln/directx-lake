@@ -10,8 +10,6 @@ Device::Device(bool useWarp)
     adapter = selectAdapter(useWarp);
 
     device = createDevice(adapter);
-
-    LOG_INFO(L"Device->DirectX 12 device initialized.");
 }
 
 void Device::enableDebugLayer()
@@ -22,12 +20,10 @@ void Device::enableDebugLayer()
     {
         debugController->EnableDebugLayer();
         LOG_INFO(L"D3D12 Debug Layer enabled.");
-        std::cout << "D3D12 Debug Layer enabled.\n";
     }
     else
     {
         LOG_ERROR(L"Failed to enable D3D12 Debug Layer!");
-        std::cerr << "WARNING: Direct3D Debug Device is not available\n";
     }
 
     dxgiFactoryFlags |= DXGI_CREATE_FACTORY_DEBUG;

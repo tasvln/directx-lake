@@ -32,8 +32,6 @@ Swapchain::Swapchain(
 
     createRTVs();
     createDepthBuffer(width, height);
-    
-    LOG_INFO(L"Swapchain->Created Swapchain");
 }
 
 ComPtr<IDXGISwapChain4> Swapchain::createSwapchain(
@@ -43,7 +41,6 @@ ComPtr<IDXGISwapChain4> Swapchain::createSwapchain(
     uint32_t bufferCount, 
     bool tearingSupport
 ) {
-    LOG_INFO(L"Swapchain -> Creating DXGIFactory...");
 
     ComPtr<IDXGIFactory4> dxgiFactory4;
     UINT createFactoryFlags = 0;
@@ -69,7 +66,6 @@ ComPtr<IDXGISwapChain4> Swapchain::createSwapchain(
     // It is recommended to always allow tearing if tearing support is available.
     swapChainDesc.Flags = tearingSupport ? DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING : 0;
 
-    LOG_INFO(L"Swapchain -> Creating SwapChainForHwnd...");
     ComPtr<IDXGISwapChain1> tempSwapChain;
     throwFailed(dxgiFactory4->CreateSwapChainForHwnd(
         commandQueue.Get(),
@@ -79,14 +75,10 @@ ComPtr<IDXGISwapChain4> Swapchain::createSwapchain(
         nullptr,
         &tempSwapChain
     ));
-
-    LOG_INFO(L"Swapchain -> Disabling Alt+Enter fullscreen toggle...");
     throwFailed(dxgiFactory4->MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER));
 
     ComPtr<IDXGISwapChain4> dxgiSwapChain4;
     throwFailed(tempSwapChain.As(&dxgiSwapChain4));
-
-    LOG_INFO(L"Swapchain -> Swapchain creation finished successfully.");
     return dxgiSwapChain4;
 }
 
@@ -162,6 +154,4 @@ void Swapchain::resize(UINT width, UINT height)
     // Recreate RTVs + depth buffer
     createRTVs();
     createDepthBuffer(width, height);
-
-    LOG_INFO(L"Swapchain -> Resize complete");
 }

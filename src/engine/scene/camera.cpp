@@ -15,10 +15,6 @@ Camera::Camera(
     radius(20.0f), 
     targetRadius(20.0f)
 {
-    LOG_INFO(L"Initializing Camera...");
-    LOG_INFO(L"Camera position set to (%.2f, %.2f, %.2f)", position.x, position.y, position.z);
-    LOG_INFO(L"Camera target set to (%.2f, %.2f, %.2f)", target.x, target.y, target.z);
-
     setProjection(
         fov,
         aspect,
@@ -56,8 +52,6 @@ void Camera::setProjection(
         nearZ,
         farZ
     );
-
-    LOG_INFO(L"Projection matrix updated. FOV: %.2f, Aspect: %.2f, NearZ: %.2f, FarZ: %.2f", fov, aspect, nearZ, farZ);
 }
 
 void Camera::update(float delta)

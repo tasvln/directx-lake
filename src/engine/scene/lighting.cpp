@@ -12,8 +12,6 @@ Lighting::Lighting(
     lightData.globalAmbient = XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f);
     lightData.eyePosition = XMFLOAT4(0, 0, -5, 1); // arbitrary until updated
     lightData.useBlinnPhong = true;
-
-    LOG_INFO(L"Lighting -> Light System Created Successfully.");
 }
 
 void Lighting::setLight(
@@ -47,6 +45,5 @@ void Lighting::setLight(
 
 void Lighting::updateGPU() {
     lightCBV->update(&lightData, sizeof(LightBufferData));
-    LOG_INFO(L"Lighting -> Updated GPU Successfully.");
 }
 

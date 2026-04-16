@@ -2,7 +2,6 @@
 
 #include "utils/pch.h"
 #include "shader.h"
-#include "scene/terrain.h"
 
 class Pipeline {
 public:

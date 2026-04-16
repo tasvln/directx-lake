@@ -14,8 +14,6 @@ DescriptorHeap::DescriptorHeap(
 
     throwFailed(device->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&heap)));
     descriptorSize = device->GetDescriptorHandleIncrementSize(type);
-
-    LOG_INFO(L"DescriptorHeap Initialized: type=%d, numDescriptors=%d", type, numDescriptors);
 }
 
 CD3DX12_CPU_DESCRIPTOR_HANDLE DescriptorHeap::getCPUHandle(UINT index) const {
